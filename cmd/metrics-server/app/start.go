@@ -98,11 +98,11 @@ type MetricsServerOptions struct {
 // NewMetricsServerOptions constructs a new set of default options for metrics-server.
 func NewMetricsServerOptions() *MetricsServerOptions {
 	o := &MetricsServerOptions{
-		SecureServing:  genericoptions.NewSecureServingOptions().WithLoopback(),
-		Authentication: genericoptions.NewDelegatingAuthenticationOptions(),
-		Authorization:  genericoptions.NewDelegatingAuthorizationOptions(),
-		Features:       genericoptions.NewFeatureOptions(),
-
+		SecureServing:                genericoptions.NewSecureServingOptions().WithLoopback(),
+		Authentication:               genericoptions.NewDelegatingAuthenticationOptions(),
+		Authorization:                genericoptions.NewDelegatingAuthorizationOptions(),
+		Features:                     genericoptions.NewFeatureOptions(),
+		DisableAuthForTesting:        true,
 		MetricResolution:             60 * time.Second,
 		KubeletPort:                  10250,
 		KubeletPreferredAddressTypes: make([]string, len(summary.DefaultAddressTypePriority)),
